@@ -13,14 +13,14 @@
     <body>
 
         <div class="jumbotron text-center" style="background-color: #00547E; color:white">
-            <img src="PHP.png" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
-            <h1 style="; font-family: Trebuchet MS">PHP Developer Store</h1>
+            <img src="PHP.png" alt="Cinque Terre" style="width:8%; box-shadow:0 4px 8px 0 rgba(0, 255, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4)">
+            <h1 style="; font-family: Trebuchet MS; text-shadow: 2px 5px 10px grey;"><i>PHP Developer Store</i></h1>
             <p>For shopping click on Sign up or Login</p> 
         </div>
         <div class="btn-group btn-group-justified">
             <a href="index.php" class="btn btn-primary" style="background-color:red ; font-family: Trebuchet MS ">View Our Products</a>
-            <a href="#" class="btn btn-primary" style="background-color: #5fdf49 ; font-family: Trebuchet MS ">Register For New Account</a>
-            <a href="#" class="btn btn-primary" style="background-color:blue ; font-family: Trebuchet MS ">Login To Your Account</a>
+            <a href="signUp.php" class="btn btn-primary" style="background-color: #5fdf49 ; font-family: Trebuchet MS ">Register For New Account</a>
+            <a href="login.php" class="btn btn-primary" style="background-color:blue ; font-family: Trebuchet MS ">Login To Your Account</a>
         </div>
         <div class="content">
         </div>
