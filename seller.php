@@ -1,16 +1,8 @@
 <!DOCTYPE html>
 <?php
+include 'General.php';
+$conn = connectionDB();
 
-function connectionDB() {
-
-    $hostname = 'localhost';
-    $databasenaam = 'cart';
-    $username = 'root';
-    $password = '';
-
-    $conn = new mysqli($hostname, $username, $password, $databasenaam);
-    return $conn;
-}
 
 if (isset($_POST['name']) &&
         isset($_POST['image']) &&
@@ -18,12 +10,14 @@ if (isset($_POST['name']) &&
     $name = get_post($conn, 'name');
     $image = get_post($conn, 'image');
     $price = get_post($conn, 'price');
-    $query = "INSERT INTO `products`"
-            . "(`name`, `image`, `price`)"
-            . " VALUES ('" . $name . "','" . $image . "','" . $price . "')";
+
+
+
+
+    $query = "INSERT INTO products
+            (name,image,price)
+            VALUES ('$name','$image','$price')";
     $result = $conn->query($query);
-
-
 
     if (!$result)
         echo "INSERT failed: $query<br>" .
@@ -58,34 +52,32 @@ if (isset($_POST['name']) &&
             </div>
         </div>
         <div class="container" style=" padding-top: 100px">
-            <div class="container">
-                <h2>Input new article</h2>
-                <form class="form-horizontal" action="/action_page.php">
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="name">Discription:</label>
-                        <div class="col-sm-10">          
-                            <input type="name" class="form-control" id="name" placeholder="Name" name="name">
-                        </div>
+            <h2>Input new article</h2>
+            <form class="form-horizontal" action="seller.php"  method="post">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="name">Discription:</label>
+                    <div class="col-sm-10">          
+                        <input type="text" class="form-control" placeholder="Name" name="name">
                     </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="img">Image:</label>
-                        <div class="col-sm-10">          
-                            <input type="file" class="form-control" id="img" placeholder="Img" name="image">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="price">Price:</label>
-                        <div class="col-sm-10">          
-                            <input type="price" class="form-control" id="price" placeholder="Price" name="price">
-                        </div>
-                    </div>
-            </div>
-            <div class="form-group">        
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Submit</button>
                 </div>
-            </div>
-        </form>
-    </div>
-</body>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="img">Image:</label>
+                    <div class="col-sm-10">          
+                        <input type="file" class="form-control" placeholder="Img" name="image">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="price">Price:</label>
+                    <div class="col-sm-10">          
+                        <input type="text" class="form-control" placeholder="Price" name="price">
+                    </div>
+                </div>
+                <div class="form-group">        
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
 </html>
